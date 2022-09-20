@@ -1,0 +1,18 @@
+package miniProjeAsalSayi;
+
+public class Main {
+
+	public static void main(String[] args) {
+		int number = 10;
+		int remainder = number % 2;
+		System.out.println(remainder);
+		
+		if (remainder == 0) {
+			System.out.println(number + " Asal Sayı Değildir.");
+		}else {
+			System.out.println(number + " Asal Sayıdır.");
+		}
+
+	}
+
+}
