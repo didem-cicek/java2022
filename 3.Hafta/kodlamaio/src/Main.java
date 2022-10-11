@@ -1,5 +1,3 @@
-package kodlamaio;
-
 import business.CategoryManager;
 import business.CourseManager;
 import business.InstructorManager;
