@@ -7,7 +7,7 @@ import kodlama.io.Kodlama.io.Devs.business.requests.programmingLanguageTechnolog
 import kodlama.io.Kodlama.io.Devs.business.requests.programmingLanguageTechnology.UpdateProgrammingLanguageTechnologyRequest;
 import kodlama.io.Kodlama.io.Devs.business.responses.programmingLanguageTechnology.GetAllProgrammingLanguageTechnologyResponse;
 import kodlama.io.Kodlama.io.Devs.business.responses.programmingLanguageTechnology.GetByIdProgrammingLanguageTechnologyResponse;
-
+	
 public interface ProgrammingLanguageTechnologyService {
 	List<GetAllProgrammingLanguageTechnologyResponse> getAll();
 	void add(CreateProgrammingLanguageTechnologyRequest createProgrammingLanguageTechnology) throws Exception;
@@ -15,3 +15,4 @@ public interface ProgrammingLanguageTechnologyService {
 	void update (UpdateProgrammingLanguageTechnologyRequest updateProgrammingLanguage) throws Exception;
 	GetByIdProgrammingLanguageTechnologyResponse getById(int id);
 }
+	

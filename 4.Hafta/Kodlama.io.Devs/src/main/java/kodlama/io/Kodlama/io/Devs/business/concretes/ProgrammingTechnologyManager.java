@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import kodlama.io.Kodlama.io.Devs.business.abstracts.ProgrammingLanguageTechnologyService;
 import kodlama.io.Kodlama.io.Devs.business.requests.programmingLanguageTechnology.CreateProgrammingLanguageTechnologyRequest;
@@ -15,7 +16,7 @@ import kodlama.io.Kodlama.io.Devs.dataAccess.abstracts.ProgrammingLanguageReposi
 import kodlama.io.Kodlama.io.Devs.dataAccess.abstracts.ProgrammingLanguageTechnologyRepository;
 import kodlama.io.Kodlama.io.Devs.entities.concretes.ProgrammingLanguage;
 import kodlama.io.Kodlama.io.Devs.entities.concretes.ProgrammingLanguageTechnology;
-
+@Service
 public class ProgrammingTechnologyManager implements ProgrammingLanguageTechnologyService {
 
 	private ProgrammingLanguageTechnologyRepository programmingTechnologyRepository;
