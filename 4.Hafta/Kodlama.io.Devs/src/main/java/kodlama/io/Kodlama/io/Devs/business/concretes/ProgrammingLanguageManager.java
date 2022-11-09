@@ -28,7 +28,7 @@ public class ProgrammingLanguageManager implements ProgrammingLanguageService {
 	@Override
 	public List<GetAllProgrammingLanguageResponse> getAll() {
 		List<ProgrammingLanguage> programmingLanguages = programmingLanguageRepository.findAll();
-		List<GetAllProgrammingLanguageResponse> programmingLanguageReponse = new ArrayList<>();
+		List<GetAllProgrammingLanguageResponse> programmingLanguageReponse = new ArrayList<GetAllProgrammingLanguageResponse>();
 		
 		for (ProgrammingLanguage programmingLanguage : programmingLanguages) {
 			GetAllProgrammingLanguageResponse responseItem = new GetAllProgrammingLanguageResponse();
@@ -44,29 +44,13 @@ public class ProgrammingLanguageManager implements ProgrammingLanguageService {
 	public GetByIdProgrammingLanguageResponse getById(int id) {
 		ProgrammingLanguage programmingLanguage=this.programmingLanguageRepository.findById(id).get();
 		GetByIdProgrammingLanguageResponse getProgrammingLanguageResponse=new GetByIdProgrammingLanguageResponse();
-		getProgrammingLanguageResponse.setId(programmingLanguage.getId());
-		getProgrammingLanguageResponse.setName(programmingLanguage.getName());
-		
+		getProgrammingLanguageResponse.setName(programmingLanguage.getName());		
 		return getProgrammingLanguageResponse;
 	}
 
 	@Override
 	public void add(CreateProgrammingLanguageRequest createProgrammingLanguage) {
-		if (createProgrammingLanguage.getName()=="" || createProgrammingLanguage.getName()==null) {
-			throw new RuntimeException("Name can not be empty. Please try again.");
-		}
 		ProgrammingLanguage programmingLanguage = new ProgrammingLanguage();
-		for (ProgrammingLanguage language : programmingLanguageRepository.findAll()) {
-				if (programmingLanguage.getId() == language.getId()
-						|| programmingLanguage.getName() == language.getName()) {
-					throw new RuntimeException("Sorry , This name is already taken.");
-				} else {
-					
-					break;
-				}
-
-			}
-
 		programmingLanguage.setName(createProgrammingLanguage.getName());
 		programmingLanguageRepository.save(programmingLanguage);
 		
@@ -76,22 +60,14 @@ public class ProgrammingLanguageManager implements ProgrammingLanguageService {
 	public void delete(DeleteProgrammingLanguageRequest deleteProgrammingLanguage) {
 		ProgrammingLanguage programmingLanguage = new ProgrammingLanguage();
 		programmingLanguage.setId(deleteProgrammingLanguage.getId());
-		programmingLanguageRepository.deleteById(deleteProgrammingLanguage.getId());
+		programmingLanguageRepository.delete(programmingLanguage);
 		
 	}
 
 	@Override
 	public void update(UpdateProgrammingLanguageRequest updateProgrammingLanguage) {
-		if (updateProgrammingLanguage.getName()=="" || updateProgrammingLanguage.getName()==null) {
-			throw new RuntimeException("Name can not be empty. Please try again.");
-		}
-		for (ProgrammingLanguage language : programmingLanguageRepository.findAll()) {
-				if (language.getName() == updateProgrammingLanguage.getName()) {
-					throw new RuntimeException("Sorry , This name is already taken.");
-				}
-
-		}
-		ProgrammingLanguage programmingLanguage=new ProgrammingLanguage();
+		ProgrammingLanguage programmingLanguage = programmingLanguageRepository
+				.findById(updateProgrammingLanguage.getId()).get();
 		programmingLanguage.setId(updateProgrammingLanguage.getId());
 		programmingLanguage.setName(updateProgrammingLanguage.getName());
 		this.programmingLanguageRepository.save(programmingLanguage);

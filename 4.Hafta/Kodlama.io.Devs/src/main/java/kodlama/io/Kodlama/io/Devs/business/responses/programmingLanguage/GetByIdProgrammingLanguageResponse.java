@@ -8,6 +8,5 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class GetByIdProgrammingLanguageResponse {
-	private int id;
 	private String name;
 }

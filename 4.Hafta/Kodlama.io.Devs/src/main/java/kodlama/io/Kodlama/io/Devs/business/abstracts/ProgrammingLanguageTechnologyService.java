@@ -10,8 +10,8 @@ import kodlama.io.Kodlama.io.Devs.business.responses.programmingLanguageTechnolo
 
 public interface ProgrammingLanguageTechnologyService {
 	List<GetAllProgrammingLanguageTechnologyResponse> getAll();
-	void add(CreateProgrammingLanguageTechnologyRequest createProgrammingLanguageTechnology);
-	void delete (DeleteProgrammingLanguageTechnologyRequest deleteProgrammingLanguage);
-	void update (UpdateProgrammingLanguageTechnologyRequest updateProgrammingLanguage);
+	void add(CreateProgrammingLanguageTechnologyRequest createProgrammingLanguageTechnology) throws Exception;
+	void delete (DeleteProgrammingLanguageTechnologyRequest deleteProgrammingLanguage) throws Exception;
+	void update (UpdateProgrammingLanguageTechnologyRequest updateProgrammingLanguage) throws Exception;
 	GetByIdProgrammingLanguageTechnologyResponse getById(int id);
 }

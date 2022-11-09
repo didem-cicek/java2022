@@ -5,10 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -36,22 +34,22 @@ public class ProgrammingLanguagesController {
 	}
 
 	@GetMapping("/getbyid/{id}")
-	public GetByIdProgrammingLanguageResponse getById(@PathVariable int id) {
+	public GetByIdProgrammingLanguageResponse getById(int id) {
 		return programmingLanguageService.getById(id);
 	}
 
 	@PostMapping("/add")
-	public void add(@RequestBody CreateProgrammingLanguageRequest createProgrammingLanguageRequest) {
+	public void add(CreateProgrammingLanguageRequest createProgrammingLanguageRequest) throws Exception{
 		programmingLanguageService.add(createProgrammingLanguageRequest);
 	}
 
 	@PutMapping("/update/")
-	public void update(@RequestBody UpdateProgrammingLanguageRequest updateProgrammingLanguageRequest) {
+	public void update(UpdateProgrammingLanguageRequest updateProgrammingLanguageRequest) throws Exception{
 		programmingLanguageService.update(updateProgrammingLanguageRequest);
 	}
 
 	@DeleteMapping("/delete")
-	public void delete(@RequestBody DeleteProgrammingLanguageRequest deleteProgrammingLanguageRequest) {
+	public void delete(DeleteProgrammingLanguageRequest deleteProgrammingLanguageRequest) throws Exception{
 		programmingLanguageService.delete(deleteProgrammingLanguageRequest);
 	}
 }
